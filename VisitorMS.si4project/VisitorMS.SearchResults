@@ -1,0 +1,5 @@
+---- database_close 搜索到 4处, 3文件 ----
+data.c (VisitorMS\src\lib\chat\chat_server\src) line 471 : int database_close()
+data.c (VisitorMS\src\lib\chat\chat_server\src) line 504 : 	database_close();
+data.h (VisitorMS\src\lib\chat\chat_server\include) line 15 : int database_close();
+server.c (VisitorMS\src\lib\chat\chat_server\src) line 25 : extern int database_close();
