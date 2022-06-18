@@ -10,7 +10,7 @@
 
 ------
 
-## 整体架构 - 见思维导图
+## 整体组织架构
 
 ### 第一版 - 2022.5.19
 
@@ -68,7 +68,7 @@
 
 > <img src="assets/assets.树莓派项目 - 组织架构 - HQ/访客管理系统  功能组织架构.png" alt="访客管理系统  功能组织架构" style="zoom: 33%;" />
 
-### 第五版 - 2022.5.31
+### 第五版 - 2022.5.31（最新）
 
 **程序结构图**
 
@@ -86,7 +86,258 @@
 
 
 
-## 文件架构 - 待补充
+## 文件组织架构
+
+### 第六版 - 2022.6.18（最新）
+
+**源代码**
+
+> <img src="assets/assets.树莓派项目 - 组织架构 - HQ/image-20220618160601477.png" alt="image-20220618160601477" style="zoom:67%;" />
+>
+> <img src="assets/assets.树莓派项目 - 组织架构 - HQ/image-20220618160620815.png" alt="image-20220618160620815" style="zoom:67%;" />
+
+```
+pi@raspberrypi:~/raspberry/VisitorMS $ tree
+.
+├── clean_project.sh
+├── make_project.sh
+└── src
+    ├── core
+    │   ├── controlDevice
+    │   │   ├── equipment1.c
+    │   │   ├── equipment2.c
+    │   │   └── fireAlarm.c
+    │   ├── identityRecognition
+    │   │   ├── appRecognition.c
+    │   │   ├── data.c
+    │   │   ├── faceRecognition.c
+    │   │   └── passwordIdentification.c
+    │   ├── inputCommand
+    │   │   ├── socketControl.c
+    │   │   ├── usartControl.c
+    │   │   └── voiceControl.c
+    │   ├── otherFunctions
+    │   │   ├── camera.c
+    │   │   ├── ftp.c
+    │   │   └── snake.c
+    │   └── system
+    │       ├── mainPro.c
+    │       └── menu.c
+    ├── include
+    │   ├── camera.h
+    │   ├── controlDevice.h
+    │   ├── data.h
+    │   ├── ftp.h
+    │   ├── identityRecognition.h
+    │   ├── inputCommand.h
+    │   ├── mainPro.h
+    │   ├── menu.h
+    │   └── snake.h
+    ├── lib
+    │   ├── chat
+    │   │   ├── chat_client
+    │   │   │   ├── include
+    │   │   │   │   └── key.h
+    │   │   │   ├── Makefile
+    │   │   │   ├── obj
+    │   │   │   │   └── Makefile
+    │   │   │   └── src
+    │   │   │       ├── client.c
+    │   │   │       ├── key.c
+    │   │   │       └── Makefile
+    │   │   ├── chat_client_start.sh
+    │   │   ├── chat.h
+    │   │   ├── chat_server
+    │   │   │   ├── include
+    │   │   │   │   ├── data.h
+    │   │   │   │   └── key.h
+    │   │   │   ├── Makefile
+    │   │   │   ├── obj
+    │   │   │   │   └── Makefile
+    │   │   │   └── src
+    │   │   │       ├── data.c
+    │   │   │       ├── key.c
+    │   │   │       ├── Makefile
+    │   │   │       └── server.c
+    │   │   ├── chat_server_start.sh
+    │   │   ├── clean.sh
+    │   │   └── gcc.sh
+    │   ├── drivers
+    │   │   ├── pin4driver2.ko
+    │   │   ├── pin4driver.c
+    │   │   ├── pin4driver.ko
+    │   │   └── pin4driver_start.sh
+    │   ├── ftp
+    │   │   ├── ftp_client.c
+    │   │   ├── ftp_client_start.sh
+    │   │   ├── ftp_server.c
+    │   │   └── ftp_server_start.sh
+    │   ├── libcurl
+    │   │   ├── back_up_photo2.jpg
+    │   │   ├── back_up_photo.jpg
+    │   │   ├── include
+    │   │   │   └── curl
+    │   │   │       ├── curl.h
+    │   │   │       ├── curlver.h
+    │   │   │       ├── easy.h
+    │   │   │       ├── mprintf.h
+    │   │   │       ├── multi.h
+    │   │   │       ├── stdcheaders.h
+    │   │   │       ├── system.h
+    │   │   │       ├── typecheck-gcc.h
+    │   │   │       └── urlapi.h
+    │   │   └── lib
+    │   │       └── libcurl.so.4.6.0
+    │   ├── ncurses
+    │   ├── sqlite3
+    │   └── wiringPi
+    ├── Makefile
+    └── tmp
+        ├── photo2.jpg
+        └── photo.jpg
+
+28 directories, 68 files
+```
+
+**编译**
+
+><img src="assets/assets.树莓派项目 - 组织架构 - HQ/image-20220618160758043.png" alt="image-20220618160758043" style="zoom:67%;" />
+
+**编译后**
+
+```
+----------------------------------
+pi@raspberrypi:~/raspberry/VisitorMS $ tree
+.
+├── clean_project.sh
+├── make_project.sh
+├── src
+│   ├── core
+│   │   ├── controlDevice
+│   │   │   ├── equipment1.c
+│   │   │   ├── equipment1.o
+│   │   │   ├── equipment2.c
+│   │   │   ├── equipment2.o
+│   │   │   ├── fireAlarm.c
+│   │   │   └── fireAlarm.o
+│   │   ├── identityRecognition
+│   │   │   ├── appRecognition.c
+│   │   │   ├── appRecognition.o
+│   │   │   ├── data.c
+│   │   │   ├── data.o
+│   │   │   ├── faceRecognition.c
+│   │   │   ├── faceRecognition.o
+│   │   │   ├── passwordIdentification.c
+│   │   │   └── passwordIdentification.o
+│   │   ├── inputCommand
+│   │   │   ├── socketControl.c
+│   │   │   ├── socketControl.o
+│   │   │   ├── usartControl.c
+│   │   │   ├── usartControl.o
+│   │   │   ├── voiceControl.c
+│   │   │   └── voiceControl.o
+│   │   ├── otherFunctions
+│   │   │   ├── camera.c
+│   │   │   ├── camera.o
+│   │   │   ├── ftp.c
+│   │   │   ├── ftp.o
+│   │   │   ├── snake.c
+│   │   │   └── snake.o
+│   │   └── system
+│   │       ├── mainPro.c
+│   │       ├── mainPro.o
+│   │       ├── menu.c
+│   │       └── menu.o
+│   ├── include
+│   │   ├── camera.h
+│   │   ├── controlDevice.h
+│   │   ├── data.h
+│   │   ├── ftp.h
+│   │   ├── identityRecognition.h
+│   │   ├── inputCommand.h
+│   │   ├── mainPro.h
+│   │   ├── menu.h
+│   │   └── snake.h
+│   ├── lib
+│   │   ├── chat
+│   │   │   ├── chat_client
+│   │   │   │   ├── bin
+│   │   │   │   ├── include
+│   │   │   │   │   └── key.h
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── obj
+│   │   │   │   │   ├── client.o
+│   │   │   │   │   ├── key.o
+│   │   │   │   │   └── Makefile
+│   │   │   │   └── src
+│   │   │   │       ├── client.c
+│   │   │   │       ├── key.c
+│   │   │   │       └── Makefile
+│   │   │   ├── chat_client_start.sh
+│   │   │   ├── chat.h
+│   │   │   ├── chat_server
+│   │   │   │   ├── bin
+│   │   │   │   ├── include
+│   │   │   │   │   ├── data.h
+│   │   │   │   │   └── key.h
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── obj
+│   │   │   │   │   ├── data.o
+│   │   │   │   │   ├── key.o
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   └── server.o
+│   │   │   │   └── src
+│   │   │   │       ├── data.c
+│   │   │   │       ├── key.c
+│   │   │   │       ├── Makefile
+│   │   │   │       └── server.c
+│   │   │   ├── chat_server_start.sh
+│   │   │   ├── clean.sh
+│   │   │   ├── client
+│   │   │   ├── gcc.sh
+│   │   │   └── server
+│   │   ├── drivers
+│   │   │   ├── pin4driver
+│   │   │   ├── pin4driver2.ko
+│   │   │   ├── pin4driver.c
+│   │   │   ├── pin4driver.ko
+│   │   │   └── pin4driver_start.sh
+│   │   ├── ftp
+│   │   │   ├── client
+│   │   │   ├── ftp_client.c
+│   │   │   ├── ftp_client_start.sh
+│   │   │   ├── ftp_server.c
+│   │   │   ├── ftp_server_start.sh
+│   │   │   └── server
+│   │   ├── libcurl
+│   │   │   ├── back_up_photo2.jpg
+│   │   │   ├── back_up_photo.jpg
+│   │   │   ├── include
+│   │   │   │   └── curl
+│   │   │   │       ├── curl.h
+│   │   │   │       ├── curlver.h
+│   │   │   │       ├── easy.h
+│   │   │   │       ├── mprintf.h
+│   │   │   │       ├── multi.h
+│   │   │   │       ├── stdcheaders.h
+│   │   │   │       ├── system.h
+│   │   │   │       ├── typecheck-gcc.h
+│   │   │   │       └── urlapi.h
+│   │   │   └── lib
+│   │   │       ├── libcurl.so -> libcurl.so.4.6.0
+│   │   │       ├── libcurl.so.4 -> libcurl.so.4.6.0
+│   │   │       └── libcurl.so.4.6.0
+│   │   ├── ncurses
+│   │   ├── sqlite3
+│   │   └── wiringPi
+│   ├── Makefile
+│   └── tmp
+│       ├── photo2.jpg
+│       └── photo.jpg
+└── VisitorMS
+
+30 directories, 96 files
+```
 
 ### 第五版 - 2022.5.31
 

@@ -21,10 +21,21 @@ else
 fi
 echo "Configuration library file succeeded!"
 
+# 加载驱动模块
+echo "----------------------------------"
+echo "Insmod pin4driver.ko ..."
+cd ../../drivers
+sudo insmod pin4driver.ko
+sudo chmod 777 /dev/pin4
+echo "Driver module loaded successfully!"
+gcc pin4driver.c -o pin4driver
+chmod 777 pin4driver_start.sh 
+echo "Driver module compiled successfully!"
+
 # 编译ftp程序
 echo "----------------------------------"
 echo "Start compile FTP module ..."
-cd ../../ftp/
+cd ../ftp/
 gcc ftp_client.c -o client -lpthread
 gcc ftp_server.c -o server -lpthread
 chmod 777 ftp_client_start.sh

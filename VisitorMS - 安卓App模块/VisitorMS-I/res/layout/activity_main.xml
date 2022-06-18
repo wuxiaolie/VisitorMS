@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#666666" 
+    tools:context=".MainActivity" >
+
+  <TableLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentTop="true"
+      android:background="#99CCFF"
+      android:stretchColumns="0,1" >
+       
+      ​
+       <WebView 
+          android:layout_width="match_parent"
+        android:layout_gravity="center"
+         android:layout_height="350dp"
+         android:id="@+id/web"   
+         />		 
+      <TableRow>
+
+              <Button
+                  android:id="@+id/kct"
+                  android:layout_width="match_parent"
+                  android:layout_height="40dp"
+                  android:text="打开设备1" />
+
+          <Button
+              android:id="@+id/gct"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="关闭设备1" />
+
+      </TableRow>
+
+      <TableRow>
+
+			<Button
+			    android:id="@+id/kws"
+			    android:layout_width="wrap_content"
+			    android:layout_height="40dp"
+			    android:text="打开设备2" />
+
+          <Button
+              android:id="@+id/gws"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="关闭设备2" />
+      </TableRow>
+
+      <TableRow>
+
+          <Button
+              android:id="@+id/kel"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="打开设备3" />
+
+          <Button
+              android:id="@+id/gel"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="关闭设备3" />
+
+      </TableRow>
+
+      <TableRow>
+
+          <Button
+              android:id="@+id/gys"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="打开设备4" />
+
+          <Button
+              android:id="@+id/kys"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="关闭设备4" />
+      </TableRow>          
+       <Button
+           android:id="@+id/ljms"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="登录账号" />
+     
+  </TableLayout>
+  
+
+
+</RelativeLayout>

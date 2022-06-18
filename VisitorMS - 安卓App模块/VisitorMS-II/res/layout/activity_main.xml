@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5"
+    tools:context=".MainActivity" >
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="388dp" 
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"/>
+    
+    <LinearLayout 
+        android:id="@+id/ll1"
+        android:layout_marginTop="140dp"
+        android:layout_below="@id/webView1"
+        android:layout_width="300dp"
+        android:layout_height="130dp"
+        android:orientation="horizontal"  
+        android:layout_centerHorizontal="true" 
+        
+        >
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:orientation="vertical"
+            >
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="身份："
+               android:textSize="25sp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:layout_weight="1" />
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="账号："
+               android:textSize="25sp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:layout_weight="1" />
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="功能："
+               android:textSize="25sp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:layout_weight="1" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:orientation="vertical"
+            >
+            <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="管理员"
+               android:textSize="24sp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:layout_weight="1" />
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="9704088"
+               android:textSize="24sp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:layout_weight="1" />
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="摄像头监控"
+               android:textSize="24sp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:layout_weight="1" />
+                               
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/ll1"
+        android:layout_width="500dp"
+        android:layout_height="76dp"
+        android:orientation="horizontal"  
+        android:layout_centerHorizontal="true" 
+        
+        >
+        <Button 
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:background="@drawable/z1"
+            android:layout_height="wrap_content"
+            />
+        <Button 
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/z2"
+            android:layout_height="wrap_content"
+            />
+        <Button 
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/z3"
+            android:layout_height="wrap_content"
+            />
+        <Button 
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/z4"
+            android:layout_height="wrap_content"
+            />
+        <Button 
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/z5"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    
+</RelativeLayout>

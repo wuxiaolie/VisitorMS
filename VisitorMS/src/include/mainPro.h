@@ -1,4 +1,32 @@
 
+/**********************************************************************************************
+ *    :|x].              ?ObU:        +jfl           ?Zdr'                   '"I>>iI"'        
+ *    n$$${             x@$$k;       n$$$Mi         [B$$$c               "-xZ*%$$$$$%*pX+     
+ *    >8$$k`           j$$$C^       ]$$$$$Q.       `k$$$$8l            ~Y#$$%kQznnuY0qhk|     
+ *     j$$$n          {@$$0'       .q$$$$$B<       ($$$$$$/          'uB$$p{:                 
+ *     'm$$B+        +&$$b,        _@$$B$$$z      ;#$$8%$$Z.         +$$$M:                   
+ *      !&$$b^      !*$$#!         C$$$\k$$M:    .Q$$@}X$$8!         ,w$$$bc|}-~<iI".         
+ *       f$$$x     :k$$&+         _B$$p./$$$x    /$$$u +@$$x          '[YdW@$$$$$$$%oOr>      
+ *       'w$$%~   ^w$$B}         `b$$@- "h$$Wl  _8$$O' 'p$$o"             ^:!><+](n0#$$@Z>    
+ *        >8$$b^ 'L$$$\          x$$$C   )$$$C Io$$a;   ($$$t                       `[#$$*:   
+ *         /$$$X.c$$$x          <8$$&l   .Z$$@\w$$%+    "a$$#;     ,]]"               p$$$>   
+ *         .J$$@w$$$Y.         .O$$$n     >8$$$$$$t      \$$$J     0$$*\"         '!(p$$$u.   
+ *          "d$$$$$Q'          >B$$%i      r$$$$$L.      ^a$$@{    _b$$$&qJvnnncCq#$$$&Q-     
+ *           lh$$$Y'           [$$$U       `0$$@C^        {@$$a^    .+jQk&@$$$$$@&aOn[:       
+ *            :\r]             '{x)^        .+}>           ?UJ).         ^:l>>>l:^.            
+ *                                                                                           
+ * Copyright (C) 2022 - 2023, HaoQing, <970407688@qq.com>.
+ * <https://github.com/wuxiaolie/VisitorMS> & <https://gitee.com/yang-haoqing/visitor-ms.git>
+ *
+ * This software is licensed as described in the file COPYING, which you should have received 
+ * as part of this distribution.
+ *
+ * You may opt to use, copy, modify, merge, publish, distribute and/or sell copies of 
+ * the Software, and permit persons to whom the Software is furnished to do so, under 
+ * the terms of the COPYING file.
+ *
+ *********************************************************************************************/
+
 #include "controlDevice.h"
 #include "identityRecognition.h"
 #include "inputCommand.h"
@@ -12,6 +40,11 @@
 #define OPEN2     21   
 #define CLOSE1    22   
 #define CLOSE2    23
+
+/* 定义线程同步变量 */
+static pthread_mutex_t mutex;  //定义互斥锁
+static pthread_cond_t cond;    //定义条件变量
+static int g_avail = 0;        //全局共享资源
 
 /* 定义全局变量 */
 struct controlDevice *pdeviceHead = NULL;
@@ -181,6 +214,7 @@ void *usart_thread(void *data)
 		int flag = 0;
 		flag = usartHead->initCommand(usartHead, NULL, NULL);
 		if (flag == -1) {
+			printf("Usart module connection failed.\r\n");
 			pthread_exit(NULL);   //线程调用此函数来退出
 		}
 		
@@ -200,7 +234,14 @@ void *usart_thread(void *data)
 				int ret = 0;
 				ret = doInputCommand(usartHead->commandID);
 			}
-			sleep(3);
+
+			/* 条件变量 */
+			pthread_mutex_lock(&mutex);  //上锁
+			while (g_avail <= 0)
+				pthread_cond_wait(&cond, &mutex);  //等待条件满足
+			pthread_mutex_unlock(&mutex);	//解锁
+			
+			sleep(2);
 		}	
 	}
 }
@@ -229,6 +270,7 @@ void *voice_thread(void *data)
 		int flag = 0;
 		flag = voiceHead->initCommand(voiceHead, NULL, NULL);
 		if (flag == -1) {
+			printf("Usart module connection failed.\r\n");
 			pthread_exit(NULL);   //线程调用此函数来退出
 		}
 		
@@ -248,7 +290,14 @@ void *voice_thread(void *data)
 				int ret = 0;
 				ret = doInputCommand(voiceHead->commandID);
 			}
-			sleep(3);
+			
+			/* 条件变量 */
+			pthread_mutex_lock(&mutex);  //上锁
+			while (g_avail <= 0)
+				pthread_cond_wait(&cond, &mutex);  //等待条件满足
+			pthread_mutex_unlock(&mutex);	//解锁
+			
+			sleep(2);
 		}	
 	}
 }
@@ -284,12 +333,17 @@ void *socket_read_thread(void *data)
 			//if (ret == -1) {
 			//	printf("Instruction execution failed!\r\n");
 			//} else {
-			//	printf("Instruction execution success!\r\n");
+			//	printf("Instruction execution success!\r\n") ;
 			//}
 		} else {
 			printf("The client is quit!\r\n");
 			pthread_exit(NULL);
 		}
+		/* 条件变量 */
+		pthread_mutex_lock(&mutex);  //上锁
+		while (g_avail <= 0)
+			pthread_cond_wait(&cond, &mutex);  //等待条件满足
+		pthread_mutex_unlock(&mutex);   //解锁
 		//sleep(1);
 	}
 }
@@ -328,6 +382,12 @@ void *socket_thread(void *data)
 		if(c_fd == -1) {
 			perror("Failed to establish connection ");
 		}
+
+		/* 条件变量 */
+		pthread_mutex_lock(&mutex);  //上锁
+		while (g_avail <= 0)
+			pthread_cond_wait(&cond, &mutex);  //等待条件满足
+		pthread_mutex_unlock(&mutex);   //解锁
 
 		//打印客户端IP地址
 		printf("--------------------------------\r\n");
@@ -452,6 +512,14 @@ void equipment1Process(void)
 	/* 初始化设备 */
 	equipment1Node->deviceInit(equipment1Node);
 
+	/* 初始化互斥锁和条件变量 */
+	pthread_mutex_init(&mutex, NULL);
+	pthread_cond_init(&cond, NULL);
+	g_avail = 0;   //还原全局资源
+
+	/* 上锁 */
+	pthread_mutex_lock(&mutex);
+
 	/* 功能选择界面打印，并完成功能选择 */
 	while (selectFunction != 113) {
 
@@ -471,6 +539,9 @@ void equipment1Process(void)
 			equipment1Node->readStatus(equipment1Node);
 			break;
 		case 113:
+			g_avail++;   //生产
+			pthread_mutex_unlock(&mutex);   //解锁
+			pthread_cond_broadcast(&cond);  //向条件变量发送信号
 			break;
 		default:
 	        picOfInputError();         
@@ -493,6 +564,14 @@ void equipment2Process(void)
 
 	/* 初始化设备 */
 	equipment2Node->deviceInit(equipment2Node);
+	
+	/* 初始化互斥锁和条件变量 */
+	pthread_mutex_init(&mutex, NULL);
+	pthread_cond_init(&cond, NULL);
+	g_avail = 0;   //还原全局资源
+
+	/* 上锁 */
+	pthread_mutex_lock(&mutex);
 
 	/* 功能选择界面打印，并完成功能选择 */
 	while (selectFunction != 113) {
@@ -513,6 +592,9 @@ void equipment2Process(void)
 			equipment2Node->readStatus(equipment2Node);
 			break;
 		case 113:
+			g_avail++;   //生产
+			pthread_mutex_unlock(&mutex);   //解锁
+			pthread_cond_broadcast(&cond);  //向条件变量发送信号
 			break;
 		default:
 			picOfInputError();   
@@ -744,27 +826,34 @@ int voiceRecognitionProcess(int numOfIdentity)
 			nread = usartHead->getCommand(usartHead);
 			if (nread == 0) {
 				/* 未获取到语音（串口）消息，无需打印信息 */
-				printf("...");
+				//printf("...");
 				/* 每打印8次...，然后打印一次回车换行 */
-				nodeNum++;
-				if (nodeNum == 8) {
-					printf("\r\n");
-					nodeNum = 0;
-				}
+				//nodeNum++;
+				//if (nodeNum == 5) {
+				//	printf("\r\n");
+				//	nodeNum = 0;
+				//}
 			} else {
-				printf("Usart module get command: %s\r\n",  usartHead->commandID);
-				if (!strcmp("42123954", usartHead->commandID)) {
+				//printf("\r\n");
+				printf("Usart module get command succeeded.\r\n");
+				if (!strcmp("123312", usartHead->commandID)) {
 					printf("Congratulations, voice verification passed.\r\n");
-					break;
+					printf("--------------------------------\r\n");
+					printf("Enter any key to return ...\r\n");
+					getch();
+					/* 清屏 */
+					picRefresh();
+					return TRUE;
 				} else {
 					printf("Sorry, voice verification failed.\r\n");
  					printf("Enter q to exit, otherwise continue verification.\r\n");
+					printf("--------------------------------\r\n");
 					if (getch() == 113) {
 						break;
 					}
 				}
 			}
-			sleep(2);
+			sleep(1);
 		}	
 	}
 

@@ -10,6 +10,15 @@ cd ./src/lib/ftp
 rm client server
 echo "FTP module cleanup succeeded!"
 
+# 卸载驱动模块
+echo "----------------------------------"
+echo "rmmod pin4driver.ko ..."
+cd ../drivers
+sudo rmmod pin4driver.ko
+echo "Driver module uninstalled successfully!"
+rm pin4driver
+echo "Driver module cleanup succeeded!"
+
 # 清理chat程序
 echo "----------------------------------"
 echo "Start clean chat module ..."
