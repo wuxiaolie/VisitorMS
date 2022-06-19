@@ -6,6 +6,42 @@
 
 ![image-20220618162536377](assets/assets.README/image-20220618162536377.png)
 
+### 项目博文（个人博客）
+
+**VisitorMS系列文章**
+
+***【[VisitorMS - 访客管理控制系统](https://wuxiaolie.github.io/hq.github.io/2022/06/19/VisitorMS.html)】***
+
+***【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】***
+
+***【[VisitorMS - 访客管理控制系统 - 组织架构](https://wuxiaolie.github.io/hq.github.io/2022/06/18/VisitorMS.html)】***
+
+***【[VisitorMS - 安卓APP开发](https://wuxiaolie.github.io/hq.github.io/2022/06/15/VisitorMS.html)】***
+
+**树莓派开发系列文章**
+
+***【[树莓派开发 - 基础使用教程](https://wuxiaolie.github.io/hq.github.io/2022/05/01/RaspberryPi.html)】***
+
+***【[树莓派开发 - FTP云盘项目](https://wuxiaolie.github.io/hq.github.io/2022/05/02/RaspberryPi.html)】***
+
+***【[树莓派开发 - 基于Socket的聊天室项目](https://wuxiaolie.github.io/hq.github.io/2022/05/03/RaspberryPi.html)】***
+
+***【[树莓派开发 - libcurl库实现车牌识别](https://wuxiaolie.github.io/hq.github.io/2022/05/04/RaspberryPi.html)】***
+
+***【[树莓派开发 - MJPG-Streamer视频方案](https://wuxiaolie.github.io/hq.github.io/2022/05/05/RaspberryPi.html)】***
+
+***【[树莓派开发 - 交叉编译&内核编译](https://wuxiaolie.github.io/hq.github.io/2022/05/06/RaspberryPi.html)】***
+
+***【[树莓派开发 - 驱动开发](https://wuxiaolie.github.io/hq.github.io/2022/05/07/RaspberryPi.html)】***
+
+***【[树莓派开发 - wiringPi库开发](https://wuxiaolie.github.io/hq.github.io/2022/05/08/RaspberryPi.html)】***
+
+***【[树莓派开发 - 应用开发](https://wuxiaolie.github.io/hq.github.io/2022/05/09/RaspberryPi.html)】***
+
+***【[树莓派开发 - 贪吃蛇游戏开发](https://wuxiaolie.github.io/hq.github.io/2022/05/10/RaspberryPi.html)】***
+
+***【[树莓派开发 - ncurses库开发](https://wuxiaolie.github.io/hq.github.io/2022/05/11/RaspberryPi.html)】***
+
 ## 项目介绍
 
 项目为**基于树莓派Linux系统开发的访客管理控制系统**。
@@ -17,7 +53,7 @@
 - 运用ncurses图形库、libcurl网络库、sqlite3数据库，以及wiringPi驱动库；
 - 项目还包含MJPG-Streamer开源视频方案、安卓APP开发。
 
-项目使用make工具进行编译，可自动配置软链接，具体见【项目使用】& 【Makefile】。
+项目使用make工具进行编译，可自动配置软链接，具体见**【项目使用】& 【Makefile】**。
 
 **身份验证方式**：
 
@@ -60,7 +96,7 @@ git@github.com:wuxiaolie/VisitorMS.git
 
 仓库网络图（不定时更新）
 
-==具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档==
+==具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】==
 
 > ![image-20220618163923304](assets/assets.README/image-20220618163923304.png)
 
@@ -82,7 +118,7 @@ git@github.com:wuxiaolie/VisitorMS.git
 
 项目为原创项目，整个项目由HQ一人开发，其中70%以上代码为个人编写。
 
-**由于项目前后只用了20多天的时间开发，许多细节处理的不到位、不够人性化，如端口号没有使用宏定义而直接写的数字等等（具体见【树莓派项目 - 开发流程 - HQ】文档），后期有时间会进行代码重构，还会推送更稳定的版本。**
+**由于项目前后只用了20多天的时间开发，许多细节处理的不到位、不够人性化，如端口号没有使用宏定义而直接写的数字等等（具体见【[VisitorMS - 访客管理控制系统 - 待完善内容](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】），后期有时间会进行代码重构，还会推送更稳定的版本。**
 
 此外，为了便于理解程序，进行学习，程序中进行了详细的注释。
 
@@ -103,11 +139,11 @@ Total Symbols:        458
 
 > ![Snipaste_2022-06-18_17-42-20](assets/assets.README/Snipaste_2022-06-18_17-42-20.png)
 
-**项目详细开发流程见同一目录下【树莓派项目 - 开发流程 - HQ】文档**
+**项目详细开发流程见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】**
 
 > <img src="assets/assets.README/image-20220618164611630.png" alt="image-20220618164611630" style="zoom:80%;" />
 
-**项目详细组织架构见同一目录下【树莓派项目 - 组织架构 - HQ】文档**
+**项目详细组织架构见同一目录下【树莓派项目 - 组织架构 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 组织架构](https://wuxiaolie.github.io/hq.github.io/2022/06/18/VisitorMS.html)】**
 
 ><img src="assets/assets.README/image-20220618164643904.png" alt="image-20220618164643904" style="zoom:80%;" />
 
@@ -159,7 +195,7 @@ Total Symbols:        458
 
 ## 项目待完善部分
 
-==具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档==
+==具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 待完善内容](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】==
 
 | 定位       | 需要解决的Bug                                |
 | ---------- | -------------------------------------------- |
