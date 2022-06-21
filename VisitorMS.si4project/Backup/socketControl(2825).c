@@ -42,11 +42,14 @@ int socketInit(struct inputCommand *socketMsg, char *ipAdress, char *port)
 		//exit(-1);
 	}
     
-    /* 2.bind，将服务器IP地址和端口号与一个套接字进行绑定（将套接字与地址关联） */
-	s_addr.sin_family = AF_INET; 
-	s_addr.sin_port = htons(atoi(socketMsg->port));  
 	//inet_aton(socketMsg->IP, &s_addr.sin_addr);  
+
+    /* 2.bind，将服务器IP地址和端口号与一个套接字进行绑定（将套接字与地址关联） */
+	s_addr.sin_family = AF_INET;  //设置为TCP/IP协议族
+	s_addr.sin_port = htons(atoi("8010"));  //设置端口号，由于传入的参数为字符串类型，要转换为int类型，htons为宏定义，用于避免出现大小端问题
+	//inet_aton("192.168.3.143", &s_addr.sin_addr);  //将IP地址在点分十进制和二进制表示形式之间进行转化
 	s_addr.sin_addr.s_addr = htonl(INADDR_ANY);  //设置IP为本机IP
+
 	bind(s_fd, (struct sockaddr *)&s_addr, sizeof(struct sockaddr_in));
 
 	/* 3.listen，让服务器进入监听状态，等待客户端连接请求 */
@@ -67,7 +70,7 @@ int socketGetCommand(struct inputCommand *socketMsg)
 struct inputCommand socketControl = {
 	.commandName = "socket",
 	.commandID = {'\0'},
-	.IP = "192.168.3.143",
+	.IP = "192.168.43.183",
 	.port = "8010",
 	.initCommand = socketInit,
 	.getCommand = socketGetCommand,

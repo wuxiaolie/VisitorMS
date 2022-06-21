@@ -45,8 +45,7 @@ int socketInit(struct inputCommand *socketMsg, char *ipAdress, char *port)
     /* 2.bind，将服务器IP地址和端口号与一个套接字进行绑定（将套接字与地址关联） */
 	s_addr.sin_family = AF_INET; 
 	s_addr.sin_port = htons(atoi(socketMsg->port));  
-	//inet_aton(socketMsg->IP, &s_addr.sin_addr);  
-	s_addr.sin_addr.s_addr = htonl(INADDR_ANY);  //设置IP为本机IP
+	inet_aton(socketMsg->IP, &s_addr.sin_addr);  
 	bind(s_fd, (struct sockaddr *)&s_addr, sizeof(struct sockaddr_in));
 
 	/* 3.listen，让服务器进入监听状态，等待客户端连接请求 */

@@ -1,0 +1,5 @@
+---- 192.168 搜索到 4处, 4文件 ----
+hasFood in camera.c (G:\桌面文件\实验室文件\组会\实验室组会-树莓派项目\VisitorMS_Project\VisitorMS\src\core\otherFunctions) : 	printw("----------------http://192.168.3.143:8080/index.html-----------------\n");
+hasFood in ftp.c (G:\桌面文件\实验室文件\组会\实验室组会-树莓派项目\VisitorMS_Project\VisitorMS\src\core\otherFunctions) : 	printw("---------------------./client 192.168.3.143 8000---------------------\n");
+administratorsProcess in menu.c (G:\桌面文件\实验室文件\组会\实验室组会-树莓派项目\VisitorMS_Project\VisitorMS\src\core\system) : 	printw("--------Please use the client to connect to 192.168.3.143 8010-------\n");
+socketControl in socketControl.c (G:\桌面文件\实验室文件\组会\实验室组会-树莓派项目\VisitorMS_Project\VisitorMS\src\core\inputCommand) : 	.IP = "192.168.43.183",
