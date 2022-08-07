@@ -14,33 +14,33 @@
 
 **VisitorMS系列文章**
 
-***【[VisitorMS - 访客管理控制系统](https://wuxiaolie.github.io/hq.github.io/2022/06/19/VisitorMS.html)】***
+***【[VisitorMS - 访客管理控制系统](https://wuxiaolie.github.io/hq.github.io/2022/08/03/VisitorMS.html)】***
 
-***【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】***
+***【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/07/29/VisitorMS.html)】***
 
-***【[VisitorMS - 访客管理控制系统 - 组织架构](https://wuxiaolie.github.io/hq.github.io/2022/06/18/VisitorMS.html)】***
+***【[VisitorMS - 访客管理控制系统 - 组织架构](https://wuxiaolie.github.io/hq.github.io/2022/07/28/VisitorMS.html)】***
 
-***【[VisitorMS - 安卓APP开发](https://wuxiaolie.github.io/hq.github.io/2022/06/15/VisitorMS.html)】***
+***【[VisitorMS - 安卓APP开发](https://wuxiaolie.github.io/hq.github.io/2022/05/09/VisitorMS.html)】***
 
 **树莓派开发系列文章**
 
-***【[树莓派开发 - 基础使用教程](https://wuxiaolie.github.io/hq.github.io/2022/05/01/RaspberryPi.html)】***
+***【[树莓派开发 - 基础使用教程](https://wuxiaolie.github.io/hq.github.io/2022/04/26/RaspberryPi.html)】***
 
-***【[树莓派开发 - FTP云盘项目](https://wuxiaolie.github.io/hq.github.io/2022/05/02/RaspberryPi.html)】***
+***【[树莓派开发 - FTP云盘项目](https://wuxiaolie.github.io/hq.github.io/2022/06/15/RaspberryPi.html)】***
 
-***【[树莓派开发 - 基于Socket的聊天室项目](https://wuxiaolie.github.io/hq.github.io/2022/05/03/RaspberryPi.html)】***
+***【[树莓派开发 - 基于Socket的聊天室项目](https://wuxiaolie.github.io/hq.github.io/2022/06/12/RaspberryPi.html)】***
 
-***【[树莓派开发 - libcurl库实现车牌识别](https://wuxiaolie.github.io/hq.github.io/2022/05/04/RaspberryPi.html)】***
+***【[树莓派开发 - libcurl库实现车牌识别](https://wuxiaolie.github.io/hq.github.io/2022/06/05/RaspberryPi.html)】***
 
-***【[树莓派开发 - MJPG-Streamer视频方案](https://wuxiaolie.github.io/hq.github.io/2022/05/05/RaspberryPi.html)】***
+***【[树莓派开发 - MJPG-Streamer视频方案](https://wuxiaolie.github.io/hq.github.io/2022/06/09/RaspberryPi.html)】***
 
-***【[树莓派开发 - 交叉编译&内核编译](https://wuxiaolie.github.io/hq.github.io/2022/05/06/RaspberryPi.html)】***
+***【[树莓派开发 - 交叉编译&内核编译](https://wuxiaolie.github.io/hq.github.io/2022/06/20/RaspberryPi.html)】***
 
-***【[树莓派开发 - 驱动开发](https://wuxiaolie.github.io/hq.github.io/2022/05/07/RaspberryPi.html)】***
+***【[树莓派开发 - 驱动开发](https://wuxiaolie.github.io/hq.github.io/2022/06/28/RaspberryPi.html)】***
 
-***【[树莓派开发 - wiringPi库开发](https://wuxiaolie.github.io/hq.github.io/2022/05/08/RaspberryPi.html)】***
+***【[树莓派开发 - wiringPi库开发](https://wuxiaolie.github.io/hq.github.io/2022/05/20/RaspberryPi.html)】***
 
-***【[树莓派开发 - 应用开发](https://wuxiaolie.github.io/hq.github.io/2022/05/09/RaspberryPi.html)】***
+***【[树莓派开发 - 应用开发](https://wuxiaolie.github.io/hq.github.io/2022/05/26/RaspberryPi.html)】***
 
 ***【[树莓派开发 - 贪吃蛇游戏开发](https://wuxiaolie.github.io/hq.github.io/2022/05/10/RaspberryPi.html)】***
 
@@ -50,14 +50,14 @@
 
 项目为**基于树莓派Linux系统开发的访客管理控制系统**。
 
-- 系统既有多种用户身份验证功能，又针对不同身份的用户开放不同的设备控制和应用权限。
+- 系统既有多种用户身份验证功能，又针对不同身份的用户开放不同的设备控制和功能权限。
 
 - 涉及多线程、多并发，socket编程，数据库，通讯加密，驱动开发等；
 - 其中设备控制部分采用简单工厂模式开发，可扩展性强；
 - 运用ncurses图形库、libcurl网络库、sqlite3数据库，以及wiringPi驱动库；
-- 项目还包含MJPG-Streamer开源视频方案、安卓APP开发。
+- 项目还包含MJPG-Streamer开源视频框架、安卓APP开发。
 
-项目使用make工具进行编译，可自动配置软链接，具体见【项目使用】& 【Makefile】。
+项目使用make工具进行编译，可自动配置软链接，具体见**【项目使用】& 【Makefile】**。
 
 **身份验证方式**：
 
@@ -77,7 +77,7 @@
 
 **应用功能**：
 
-- 摄像头监控 – 使用MJPG-Streamer视频方案；
+- 摄像头监控 – 使用MJPG-Streamer视频框架；
 
 - FTP日志传输 – 用户可远程连接系统，进行上传下载日志；
 
@@ -104,9 +104,9 @@ git@github.com:wuxiaolie/VisitorMS.git
 
 仓库网络图（不定时更新）
 
-具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】
+**具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 搭建流程](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】**
 
-> ![image-20220618163923304](assets/assets.README/image-20220618163923304.png)
+> ![image-20220807104637030](assets/assets.README/image-20220807104637030.png)
 
 
 
@@ -205,23 +205,41 @@ Total Symbols:        458
 
 ## 项目待完善部分
 
-具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 待完善内容](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】
+**具体见同一目录下【树莓派项目 - 开发流程 - HQ】文档 & 博文【[VisitorMS - 访客管理控制系统 - 待完善内容](https://wuxiaolie.github.io/hq.github.io/2022/06/17/VisitorMS.html)】**
 
-| 定位       | 需要解决的Bug                                |
-| ---------- | -------------------------------------------- |
-| 贪吃蛇游戏 | 第一次进入游戏正常运行，第二次进入游戏会闪退 |
-| xxx        | xxx                                          |
+| 定位         | 需要解决的Bug                                                |
+| ------------ | ------------------------------------------------------------ |
+| 贪吃蛇游戏   | 第一次进入游戏正常运行，第二次进入游戏会闪退                 |
+| 整个系统     | 数字指示部分可以用宏定义代替                                 |
+| 整个系统     | 全局变量，局部变量，全局函数，静态局部函数使用不规范，该加static的地方没有加；const没怎么用，比如不希望被更改的传参 |
+| 整个系统     | 大部分函数调用，并没有检测返回值，判断函数运行是否正确正常，没有报错和容错程序，报错调试没有使用专用的DEBUG宏定义调试方法，且函数返回后也没有添加显示调用是否成功的打印信息 |
+| 整个系统     | 规范化，比如将用到的库文件复制到项目lib文件夹下（libcurl库已经移植到项目的lib文件夹下），提高可移植性 |
+| 整个系统显示 | 可以在每个菜单显示后面通过printf来打印一些有用信息，不必局限在固有的菜单显示，在菜单切换时，通过调用界面刷新函数清除这些打印信息。（通过使用ncurses库显示界面，并配合使用printf打印一些运行提示信息） |
+| 数据库       | 需要修改补充数据库，在数据库中添加区分不同用户对应身份的数据项（普通用户、user1、user2、管理员）。由于系统是先选择身份，再验证登录，所以验证的时候要查询数据库判断所登录的用户是否与选择的身份匹配，匹配则继续验证，否则提示登录用户与身份不匹配。（目前的做法就是单纯的，只要用户输入的账号密码正确就验证通过，这样就无法区分不同身份的用户了） |
+| FTP功能      | 将system系统调用改为exec系统调用，并接收用户输入指定的IP地址和端口号，将参数传入shell脚本中，访问指定IP地址和端口号 |
+| 人脸识别     | 区分用户身份的人脸识别部分未实现。在目前功能基础上，增加让用户自己输入照片位置-名称信息的功能，系统根据输入信息进行查找照片位置，然后比对。增加自动打开摄像头拍照功能，然后将拍取的照片与原始照片比对。 |
 
-| 定位 | 更多操作需要优化的地方 |
-| ---- | ---------------------- |
-| xxx  | xxx                    |
-| xxx  | xxx                    |
+| 定位             | 更多操作需要优化的地方                                       |
+| ---------------- | ------------------------------------------------------------ |
+| 系统shell脚本    | shell脚本可以根据输入的内容选择性编译内容                    |
+| 聊天室           | 聊天室运行时，先打开服务端程序，再打开客户端程序，所以如果其他用户要进入聊天室，只能通过客户端的应用进入，不能通过系统进入，否则会开启两个服务端，冲突。解决方法，一个是服务端单独手动开启，一个是开启前，先判断系统进程中是否存在服务器应用，高级做法就是加锁，信号量等高级操作。 |
+| 其他注意         | system系统调用ftp和chat运行脚本都是使用的相对地址，相对VisitorMS文件地址进行查找，如果更改了VisitorMS文件的打开位置，则这个相对地址也要改，这样才能使system系统调用找到启动脚本位置并运行脚本；并且启动的脚本文件里面的地址也要改它们运行程序的相对地址；改树莓派摄像头脚本地址；改人脸识别调用图片地址；修改mainPro.h中chat_thread()函数调用的脚本地址 |
+| APP验证登录      | 通过将时间（年-月-日-时，不包含分秒）写入文本，然后计算文本的mdk5值，传输这个值到管理系统，管理系统采用相同方法生成mdk5值进行比对，相同则验证通过（目前是发送固定数字） |
+| APP验证登录      | 主程序作为服务端等待客户端connect连接时会阻塞，如果没有接收到连接就会一直卡住 |
+| APP验证登录      | 如果使用APP进行验证的密码，那么后面再用APP进行网络线程控制就会出现不响应的情况，需要ssh重连树莓派（线程退出或者服务器关闭时没有清理干净） |
+| APP              | 存在问题，如果通过APP访问了摄像头，在关闭摄像头之前退出APP可以正常退出，但是如果没有退出APP，则摄像头无法通过Ctrl + C退出，只能Ctrl +Z强制退出系统 |
+| **串口**         | **在使用自己编译的内核后，树莓派串口失灵，经排查，不是电脑驱动问题，不是程序问题，不是串口模块的问题，树莓派运行串口测试程序，收发数据在电脑上都接收不到，怀疑是树莓派Linux串口驱动的问题，ttyAMA0存在问题。** |
+| **语音识别模块** | **语音模块程序测试未完成**                                   |
 
 
 
 
 
 ## 项目结构
+
+#### 系统分层设计架构图
+
+>![VisitorMS](assets/assets.README/VisitorMS.png)
 
 #### 系统程序功能结构图
 
