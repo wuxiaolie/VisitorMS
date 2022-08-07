@@ -57,7 +57,7 @@
 - 运用ncurses图形库、libcurl网络库、sqlite3数据库，以及wiringPi驱动库；
 - 项目还包含MJPG-Streamer开源视频框架、安卓APP开发。
 
-项目使用make工具进行编译，可自动配置软链接，具体见**【项目使用】& 【Makefile】**。
+项目使用make工具进行编译，可自动配置软链接，具体见【项目使用】& 【Makefile】。
 
 **身份验证方式**：
 
