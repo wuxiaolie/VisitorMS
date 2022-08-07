@@ -82,6 +82,12 @@
 >
 ><img src="assets/assets.树莓派项目 - 组织架构 - HQ/访客管理系统  功能组织架构.png" alt="访客管理系统  功能组织架构" style="zoom: 33%;" />
 
+### 第五版 - 2022.8.1（补充）
+
+**系统分层设计架构图**
+
+>![VisitorMS](assets/assets.树莓派项目 - 组织架构 - HQ/VisitorMS.png)
+
 
 
 
