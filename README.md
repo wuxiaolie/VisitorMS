@@ -55,7 +55,7 @@
 - 涉及多线程、多并发，socket编程，数据库，通讯加密，驱动开发等；
 - 其中设备控制部分采用简单工厂模式开发，可扩展性强；
 - 运用ncurses图形库、libcurl网络库、sqlite3数据库，以及wiringPi驱动库；
-- 项目还包含MJPG-Streamer开源视频框架、安卓APP开发。
+- 项目还包含MJPG-Streamer开源视频框架、安卓APP开发 。
 
 项目使用make工具进行编译，可自动配置软链接，具体见【项目使用】& 【Makefile】。
 
